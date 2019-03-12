@@ -14,6 +14,8 @@ class SignUp extends Component{
                     dob: '',
                     mail: '',
                     pass: '',
+                    age: '',
+                    cpass: '',
                     submit:''
             };
             
@@ -26,8 +28,20 @@ handleChange(event){
     const {target} =event;
     const value = target.value;
     const inputName = target.name;
-
-    this.setState({
+    if(inputName == 'fname' || inputName == 'lname' || inputName == 'mname' || inputName == 'dept' ){
+        var alphaExp = /^[a-zA-Z]+$/;
+        if(!value.match(alphaExp)){
+            alert('enter a valid name')
+        }
+    }
+    else if(inputName == 'mail'){
+         var emailExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(!value.match(emailExp)){
+            alert('enter a valid Email')
+        };
+    }       
+  
+this.setState({
         [inputName]: value
     })
 
@@ -36,7 +50,7 @@ handleChange(event){
 handleSubmit(event) {
     event.preventDefault();
 
-    const {fname, lname, mname, dept, dob, mail, pass} = this.state;
+    const {fname, lname, mname, dept, dob, mail, pass, age, cpass} = this.state;
     let data = {
         fname,
         lname,
@@ -44,6 +58,8 @@ handleSubmit(event) {
         dept,
         dob,
         mail,
+        age,
+        cpass,
         pass
     }
     console.log(data);
@@ -54,21 +70,17 @@ handleSubmit(event) {
         dept: '',
         dob: '',
         mail: '',
+        age: '',
+        cpass:'',
         pass: ''
        
     })
 }
 
-
-
-
-
-
-
     render() {
         return(
 <React.Fragment>
-                   <div className="container-fluid">
+                   <div className="container-fluid" style={{padding:"0px"}}>
                         <nav className="navbar navbar-light bg-light">
                             <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
                                 <form className="form-inline">
@@ -94,44 +106,40 @@ handleSubmit(event) {
             <form className="formstyle">
                 <div className="form-group ">
                     <label htmlFor="firstname">First Name:</label>
-                    <input type="text" className="form-control"name="fname" value= {this.state.fname} onChange= {this.handleChange.bind(this)} placeholder="First-Name" required/>
+                    <input type="text" pattern="/^[a-zA-Z]+$/" className="form-control"name="fname" value= {this.state.fname} onChange= {this.handleChange.bind(this)} required/>
                 </div>
         <div className="form-group">
              <label htmlFor="lastname">Last Name:</label>
-             <input type="text" className="form-control" name="lname" value= {this.state.lname} onChange= {this.handleChange.bind(this)} placeholder="Last-Name"  required/>
+             <input type="text" className="form-control" name="lname" value= {this.state.lname} onChange= {this.handleChange.bind(this)} required/>
         </div>
         <div className="form-group">
     <label htmlFor="workdepartment"> Work Department</label>
-    {/* <select className="form-control" name="dept" value= {this.state.dept} onChange= {this.handleChange.bind(this)} >
-     
-    <option selected disabled> Choose...</option>
-    <option value="marketing">Marketing</option>
-    <option value="HR">Human Resource</option>
-    <option value="IT">IT Department </option>
-    
-    <option value="management">Management </option>
-         </select> */}
-         </div>
+    <input type="text" className="form-control" name="dept" value= {this.state.lname} onChange= {this.handleChange.bind(this)}  required/>
+  </div>
         
         <div className="form-group ">
              <label htmlFor="managersname">Manger's Name:</label>
-             <input type="text" className="form-control" name="mname" value= {this.state.mname} onChange= {this.handleChange.bind(this)} placeholder="Manager-Name"  required/>
+             <input type="text" className="form-control" name="mname" value= {this.state.mname} onChange= {this.handleChange.bind(this)} required/>
         </div>
         <div className="form-group ">
              <label htmlFor="age"> Age:</label>
-             <input type="number" className="form-control" name="age" value= {this.state.fname} onChange= {this.handleChange.bind(this)} placeholder="Age"/>
+             <input type="number" className="form-control" name="age" value= {this.state.age} onChange= {this.handleChange.bind(this)} required/>
         </div>
         <div className="form-group ">
              <label htmlFor="dob">D.O.B:</label>
-             <input type="date" className="form-control" name="dob" value= {this.state.dob} onChange= {this.handleChange.bind(this)} placeholder="Date-of-Birth"/>
+             <input type="date" className="form-control" name="dob" value= {this.state.dob} onChange= {this.handleChange.bind(this)} required/>
         </div>
         <div className="form-group ">
              <label htmlFor="email">Email</label>
-             <input type="email" className="form-control" name="mail" value= {this.state.mail} onChange= {this.handleChange.bind(this)} placeholder="Email Address"/>
+             <input type="email"  className="form-control" name="mail" value= {this.state.mail} onChange= {this.handleChange.bind(this)} required/>
         </div>
         <div className="form-group">
              <label htmlFor="password"> Password:</label>
-             <input type="password" className="form-control" name="pass" value= {this.state.pass} onChange= {this.handleChange.bind(this)} placeholder="password"/>
+             <input type="password" className="form-control" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required name="pass" value= {this.state.pass} onChange= {this.handleChange.bind(this)}/>
+        </div>
+        <div className="form-group">
+             <label htmlFor="confirmpassword"> Confirm Password:</label>
+             <input type="password" className="form-control" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required name="cpass" value= {this.state.pass} onChange= {this.handleChange.bind(this)}/>
         </div>
         <button type="button" className="btn btn-secondary btn-large" onClick={this.handleSubmit}>Create</button>
 
@@ -145,7 +153,7 @@ handleSubmit(event) {
             </div>
                     <div className="container-fluid">
             <nav className="navbar fixed-bottom navbar-light bg-light">
-                <a className="navbar-brand" href="#ggg">TimeOffManagement</a>
+            <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
             </nav>
             </div>
 </React.Fragment>
