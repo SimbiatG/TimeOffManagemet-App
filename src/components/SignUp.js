@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignUp.css';
+
+
 
 class SignUp extends Component{
     constructor(props){
@@ -27,11 +30,12 @@ class SignUp extends Component{
 handleChange(event){
     const {target} =event;
     const value = target.value;
-    const inputName = target.name;
+    const inputName = target.name
+    
     if(inputName == 'fname' || inputName == 'lname' || inputName == 'mname' || inputName == 'dept' ){
         var alphaExp = /^[a-zA-Z]+$/;
         if(!value.match(alphaExp)){
-            alert('enter a valid name')
+            alert('enter a valid Email')
         }
     }
     else if(inputName == 'mail'){
@@ -49,7 +53,6 @@ this.setState({
 
 handleSubmit(event) {
     event.preventDefault();
-
     const {fname, lname, mname, dept, dob, mail, pass, age, cpass} = this.state;
     let data = {
         fname,
@@ -62,7 +65,10 @@ handleSubmit(event) {
         cpass,
         pass
     }
+
+    
     console.log(data);
+    
     this.setState({
         fname: '',
         lname: '',
@@ -75,8 +81,8 @@ handleSubmit(event) {
         pass: ''
        
     })
-}
 
+}
     render() {
         return(
 <React.Fragment>
@@ -84,7 +90,7 @@ handleSubmit(event) {
                         <nav className="navbar navbar-light bg-light">
                             <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
                                 <form className="form-inline">
-                                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">LOGIN</button>
+                                <Link className="btn btn-outline-success my-2 my-sm-0"  to='/'> HOME </Link>
                                 </form>
                         </nav>
                      </div>
@@ -106,7 +112,8 @@ handleSubmit(event) {
             <form className="formstyle">
                 <div className="form-group ">
                     <label htmlFor="firstname">First Name:</label>
-                    <input type="text" pattern="/^[a-zA-Z]+$/" className="form-control"name="fname" value= {this.state.fname} onChange= {this.handleChange.bind(this)} required/>
+                    <input type="text" id="firstname" className="form-control"name="fname" value= {this.state.fname} onChange= {this.handleChange.bind(this)} required/>
+                    <p>Invalid Field</p>
                 </div>
         <div className="form-group">
              <label htmlFor="lastname">Last Name:</label>

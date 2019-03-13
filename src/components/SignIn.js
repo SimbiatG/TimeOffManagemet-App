@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignIn.css';
 
@@ -9,9 +10,8 @@ class SignIn extends Component{
 
             this.state = {
                    email: '',
-                    pass: '',
+                    pass: ''
                   
-                    submit:''
             };
             
             this.handleChange = this.handleChange.bind(this);
@@ -63,7 +63,7 @@ render() {
            <nav className="navbar navbar-light bg-light">
                       <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
                       <form className="form-inline">
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">LOGIN</button>
+                      <Link className="btn btn-outline-success my-2 my-sm-0"  to='/'> HOME </Link>
                       </form>
                 </nav>
     </div>
@@ -83,7 +83,8 @@ render() {
              <input type="password" className="form-control" name="pass"  placeholder="password"/>
         </div>
 
-        <button type="button" className="btn btn-secondary btn-large signinbutton" onClick={this.handleSubmit}> SIGN IN </button>
+        {/* <button type="button" onClick={this.handleSubmit}> SIGN IN </button> */}
+        <Link  className="btn btn-secondary btn-large signinbutton" to='/dashboard'>SIGN IN</Link>
                 </form>
             </div>
     </div>

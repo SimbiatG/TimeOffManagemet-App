@@ -14,7 +14,7 @@ class Home extends Component {
            <nav className="navbar navbar-light bg-light">
                       <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
                       <form className="form-inline">
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">LOGIN</button>
+                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit"> HOME </button>
                       </form>
                 </nav>
               </div>
