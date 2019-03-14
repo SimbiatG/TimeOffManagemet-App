@@ -5,6 +5,7 @@ import Home from './components/Home';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Dashboard from './components/Dashboard';
+import Absenceform from './components/Absenceform';
 
 class App extends Component {
   render() {
@@ -16,6 +17,8 @@ class App extends Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/signin' component={SignIn} />
             <Route path='/dashboard' component={Dashboard} />
+            <Route path='/absenceform' component={Absenceform} />
+
             </div>
 
 

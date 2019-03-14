@@ -15,6 +15,8 @@ class Home extends Component {
                       <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
                       <form className="form-inline">
                             <button className="btn btn-outline-success my-2 my-sm-0" type="submit"> HOME </button>
+                            
+                            <Link className="btn btn-outline-success my-2 my-sm-0" to='/dashboard' type="submit"> DASHBOARD </Link>
                       </form>
                 </nav>
               </div>

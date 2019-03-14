@@ -4,15 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignIn.css';
 
 class SignIn extends Component{
-
-    constructor(props){
+     constructor(props){
         super(props);
 
+
             this.state = {
-                   email: '',
-                    pass: ''
-                  
+                initialState : {
+                    email: '',
+                    fullname:'',
+                     pass: '',
+                     emailError: '',
+                     fullnameError:'',
+                     passError:''
+                }
             };
+                 
+           
             
             this.handleChange = this.handleChange.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,41 +27,50 @@ class SignIn extends Component{
 }
 
 handleChange(event){
-    const {target} =event;
-    const value = target.value;
-    const inputName = target.name;
-    if(inputName == 'email'){
-         var emailExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!value.match(emailExp)){
-            alert('enter a valid Email')
-        };
-    }       
-   
-
-
+    const isCheckbox = event.target.type === "checkbox;"
     this.setState({
-        [inputName]: value
-    })
+        [event.target.name]: isCheckbox
+            ? event.target.checked
+            : event.target.value
+    });
 
 }
+
+            validate = () => {
+                let fullnameError = "";
+                let emailError = "";
+                // let passError = "";
+                var fnameExp = /^[a-zA-Z]+$/;
+
+                
+                if(!this.state.fullname.match(fnameExp)){
+                    fullnameError = "Please use letters only" 
+                }
+
+                if(!this.state.email){
+                    emailError = "invalid email"
+                }
+
+                if (emailError || fullnameError){
+                    this.setState({ emailError, fullnameError});
+                    return false;
+                }
+                return true;
+            };
+
+
+
+
+
 
 handleSubmit(event) {
     event.preventDefault();
-
-    const {email, pass, cpass} = this.state;
-    let data = {
-       email,
-       
-        pass
+    const isValid = this.validate();
+    if (isValid){
+        console.log(this.state);
+        this.setState(this.state)
     }
-    console.log(data);
-    this.setState({
-         email: '',
-       
-        pass: ''
-       
-    })
-}
+};
 
 render() {
             return(
@@ -73,18 +89,29 @@ render() {
             <div className="container">
             <h3 className="heading"> Please Enter Your Login Details </h3>
             <div className="pageform">
-                <form>
+                
+                <form onSubmit={this.handleSubmit}>
+
+                <div className="form-group ">
+             <label htmlFor="name"> Full-Name:</label>
+             <input type="text" className="form-control" required name="fullname"  value={this.state.fullname} onChange={this.handleChange.bind(this)} placeholder="Full-Name"/>
+                    <div style={{color:"red"}}> {this.state.fullnameError} </div>
+        </div>
                     <div className="form-group ">
              <label htmlFor="email">Email:</label>
-             <input type="email" className="form-control" name="email"  value={this.state.mail} onChange={this.handleChange.bind(this)} placeholder="Email Address"/>
+             <input type="email" className="form-control" required name="email"  value={this.state.email} onChange={this.handleChange.bind(this)} placeholder="Email Address"/>
+            
         </div>
+        
         <div className="form-group">
              <label htmlFor="password"> Password:</label>
-             <input type="password" className="form-control" name="pass"  placeholder="password"/>
+             <input type="password" className="form-control" name="pass" required placeholder="password"/>
+            
         </div>
+        
 
-        {/* <button type="button" onClick={this.handleSubmit}> SIGN IN </button> */}
-        <Link  className="btn btn-secondary btn-large signinbutton" to='/dashboard'>SIGN IN</Link>
+        {/* <button type="button" > SIGN IN </button> */}
+        <button type="submit" className="btn btn-secondary btn-large signinbutton">SIGN IN </button>
                 </form>
             </div>
     </div>

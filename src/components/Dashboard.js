@@ -15,6 +15,7 @@ class Dashboard extends Component{
             <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <Link to='/'> HOME </Link></li>
+                    <li class="breadcrumb-item"> <Link to='/absenceform'> ABSENCE-FORM </Link></li>
                 <li class="breadcrumb-item active"  aria-current="page"><a href="#"> Calendar </a></li>
                 <li class="breadcrumb-item"> <a href="#">Team View </a> </li>
                 </ol>
@@ -67,13 +68,13 @@ class Dashboard extends Component{
                 <h5 style={{textAlign:"center" , marginTop:"30px"}}> Upcoming Months </h5>
                     <div className="row" style={{marginTop:"30px"}}>
                         <div className="col-md-3">
-                        <div class="month">      
+                        <div className="month">      
                              <ul>
     <li> July 2019 </li>
                             </ul>
                         </div>
                                 
-<ul class="weekdays">
+<ul className="weekdays">
 <li>M</li>
   <li>T</li>
   <li>W</li>
@@ -83,7 +84,7 @@ class Dashboard extends Component{
   <li>S</li>
 </ul>
 
-<ul class="days">  
+<ul className="days">  
   <li>1</li>
   <li>2</li>
   <li>3</li>
@@ -93,7 +94,7 @@ class Dashboard extends Component{
   <li>7</li>
   <li>8</li>
   <li>9</li>
-  <li><span class="active">10</span></li>
+  <li><span className="active">10</span></li>
   <li>11</li>
   <li>12</li>
   <li>13</li>
@@ -118,13 +119,13 @@ class Dashboard extends Component{
 </ul>
                         </div>
                         <div className="col-md-3">
-                        <div class="month">      
+                        <div className="month">      
                              <ul>
     <li> August 2019 </li>
                             </ul>
                         </div>
                                 
-<ul class="weekdays">
+<ul className="weekdays">
 <li>M</li>
   <li>T</li>
   <li>W</li>
@@ -134,7 +135,7 @@ class Dashboard extends Component{
   <li>S</li>
 </ul>
 
-<ul class="days">  
+<ul className="days">  
   <li>1</li>
   <li>2</li>
   <li>3</li>
@@ -150,9 +151,9 @@ class Dashboard extends Component{
   <li>14</li>
   <li>15</li>
   <li>16</li>
-  <li><span class="active">17</span></li>
-  <li><span class="active">18</span></li>
-  <li><span class="active">19</span></li>
+  <li><span className="active">17</span></li>
+  <li><span className="active">18</span></li>
+  <li><span className="active">19</span></li>
   <li>20</li>
   <li>21</li>
   <li>22</li>
@@ -169,13 +170,13 @@ class Dashboard extends Component{
                         </div>
 
                             <div className="col-md-3">
-                            <div class="month">      
+                            <div className="month">      
                              <ul>
     <li> September 2019 </li>
                             </ul>
                         </div>
                                 
-<ul class="weekdays">
+<ul className="weekdays">
 <li>M</li>
   <li>T</li>
   <li>W</li>
@@ -185,7 +186,7 @@ class Dashboard extends Component{
   <li>S</li>
 </ul>
 
-<ul class="days">  
+<ul className="days">  
   <li>1</li>
   <li>2</li>
   <li>3</li>
@@ -201,7 +202,7 @@ class Dashboard extends Component{
   <li>14</li>
   <li>15</li>
   <li>16</li>
-  <li><span class="active">17</span></li>
+  <li><span className="active">17</span></li>
   <li>18</li>
   <li>19</li>
   <li>20</li>
@@ -220,13 +221,13 @@ class Dashboard extends Component{
                             </div>
 
                             <div className="col-md-3">
-                            <div class="month">      
+                            <div className="month">      
                              <ul>
     <li> October 2019 </li>
                             </ul>
                         </div>
                                 
-<ul class="weekdays">
+<ul className="weekdays">
 <li>M</li>
   <li>T</li>
   <li>W</li>
@@ -236,7 +237,7 @@ class Dashboard extends Component{
   <li>S</li>
 </ul>
 
-<ul class="days">  
+<ul className="days">  
   <li>1</li>
   <li>2</li>
   <li>3</li>
@@ -245,7 +246,7 @@ class Dashboard extends Component{
   <li>6</li>
   <li>7</li>
   <li>8</li>
-  <li><span class="active">9</span></li>
+  <li><span className="active">9</span></li>
   <li>11</li>
   <li>12</li>
   <li>13</li>
@@ -260,7 +261,7 @@ class Dashboard extends Component{
   <li>22</li>
   <li>23</li>
   <li>24</li>
-  <li><span class="active">25</span></li>
+  <li><span className="active">25</span></li>
   <li>26</li>
   <li>27</li>
   <li>28</li>
@@ -276,7 +277,7 @@ class Dashboard extends Component{
                 <h3 style={{color:"blue", marginTop:"40px"}}> All Absences  </h3> 
                 </div>
         <div className="container-fluid">
-        <table class="table"  style={{marginTop:"30px"}} >
+        <table className="table"  style={{marginTop:"30px"}} >
   <thead>
     <tr>
       <th scope="col">Type</th>
