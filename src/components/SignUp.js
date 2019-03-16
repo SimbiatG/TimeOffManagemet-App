@@ -33,43 +33,28 @@ class SignUp extends Component{
 
 
 handleChange(event){
-    const isCheckbox = event.target.type === "checkbox;"
+    // const isCheckbox = event.target.type === "checkbox;"
     this.setState({
-        [event.target.name]: isCheckbox
-            ? event.target.checked
-            : event.target.value
+        [event.target.name]: event.target.value
     });
+    const isValid = this.validate(event.target.value);
+    if (isValid){
+        let error = ""
+        event.target.nextSibling.innerHTML = error ;
+        
+    }
+    else{
+        let error = "please use letters only";
+        event.target.nextSibling.innerHTML = error ;
+        
+    }
 
 }
 
-validate = () => {
-   let lnameError ="";
-    let fnameError = "";
-    let mnameError = "";
-    let deptError = "";
+validate = (data) => {
 
     var nameExp = /^[a-zA-Z]+$/;
-
-    
-    if(!this.state.fname.match(nameExp)){
-        fnameError = "Please use letters only" 
-    }
-
-    if(!this.state.lname.match(nameExp)){
-        lnameError = "Please use letters only" 
-    }
-
-    if(!this.state.mname.match(nameExp)){
-        mnameError = "Please use letters only" 
-    }
-    if(!this.state.dept.match(nameExp)){
-        deptError = "Please use letters only"  
-    }
-
-
-
-    if (fnameError || lnameError  || mnameError  || deptError){
-        this.setState({ fnameError, lnameError, mnameError, deptError});
+    if(!data.match(nameExp)){
         return false;
     }
     return true;
@@ -79,12 +64,10 @@ validate = () => {
 
 handleSubmit(event) {
     event.preventDefault();
-    const isValid = this.validate();
-    if (isValid){
-        console.log(this.state);
-        this.setState(this.state)
-    }
-};  render() {
+   
+}; 
+
+render() {
         return(
 <React.Fragment>
                    <div className="container-fluid" style={{padding:"0px"}}>

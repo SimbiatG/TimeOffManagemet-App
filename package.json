@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "bootstrap": "^4.3.1",
     "react": "^16.8.4",
+    "react-calendar": "^2.18.1",
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",

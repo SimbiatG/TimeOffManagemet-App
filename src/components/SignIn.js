@@ -33,17 +33,23 @@ handleChange(event){
             ? event.target.checked
             : event.target.value
     });
+    const isValid = this.validate(event.target.value);
+    if (isValid){
+        console.log(this.state);
+        this.setState(this.initialState)
+    }
 
+   
 }
 
-            validate = () => {
+            validate = (data) => {
                 let fullnameError = "";
                 let emailError = "";
-                // let passError = "";
+            
                 var fnameExp = /^[a-zA-Z]+$/;
 
                 
-                if(!this.state.fullname.match(fnameExp)){
+                if(!data.match(fnameExp)){
                     fullnameError = "Please use letters only" 
                 }
 
@@ -57,7 +63,7 @@ handleChange(event){
                 }
                 return true;
             };
-
+           
 
 
 
@@ -65,11 +71,8 @@ handleChange(event){
 
 handleSubmit(event) {
     event.preventDefault();
-    const isValid = this.validate();
-    if (isValid){
-        console.log(this.state);
-        this.setState(this.state)
-    }
+   
+   
 };
 
 render() {

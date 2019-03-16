@@ -24,8 +24,9 @@ class Home extends Component {
                   <div className="container">
                     <div className="text">
                     <h2> TimeOff Management</h2>
-                    <p> Open source, simple yet powerful absence management software for small and medium size business.</p>
-                <p>Endorsed by hundreds of software developers. </p>
+                    <p> At TimeOff Management, we are interested is the well-being of all employees. We understand that everyone needs a break from time to time. That is where we at TimeOff Management are needed.
+                        We help employees request for that much needed leave from their companies. We are only a call away.</p>
+                <p>Endorsed by the association of employees worldwide. </p>
                   </div>
                   
                   <Link className="btn btn-secondary buttonstyle" to='/signup'>SIGN UP</Link>

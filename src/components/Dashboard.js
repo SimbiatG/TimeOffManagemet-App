@@ -17,7 +17,7 @@ class Dashboard extends Component{
                     <li class="breadcrumb-item"> <Link to='/'> HOME </Link></li>
                     <li class="breadcrumb-item"> <Link to='/absenceform'> ABSENCE-FORM </Link></li>
                 <li class="breadcrumb-item active"  aria-current="page"><a href="#"> Calendar </a></li>
-                <li class="breadcrumb-item"> <a href="#">Team View </a> </li>
+                <li class="breadcrumb-item"> <Link to='/teamview'>TEAM-VIEW  </Link></li>
                 </ol>
             </nav>
         </div>
@@ -32,31 +32,93 @@ class Dashboard extends Component{
         <div className="container">
             <div  className="headingtext">
                 <h3 style={{color:"blue", marginTop:"40px"}}>  Statistics </h3> 
-         <div className="row">
+         <div className="row headingtext">
             <div className="col-md-3">
-                <p className="number" style={{textAlign:"center"}}> 8.5 </p>
-                <p style={{textAlign:"center"}}> days remaining out of 21 in Allowance </p>
+            <table className="table" >
+              <tr>
+              <th scope="col"> <p className="number" style={{textAlign:"center"}}> 8.5 </p></th>
+              </tr>
+              <tbody>
+              <tr>
+     
+      <td><p style={{textAlign:"center"}}> days remaining out of 21 in Allowance </p></td>
+      </tr>
+              </tbody>
+            </table>
+               
             </div>
 
                     <div className="col-md-3">
-                <h5 style={{textAlign:"center"}}> used so far </h5>
-                <p> Holiday : <span style={{float:"right"}}> 12.5 </span>  </p>
-                <p> Sick Leave : <span style={{float:"right"}}> 1 out of 10 </span>  </p>
+                    <table className="table" >
+              <tr>
+              <th scope="col"> <h5 style={{textAlign:"center"}}> used so far </h5> </th>
+              </tr>
+              <tbody>
+              <tr>
+     
+      <td>  <p> Holiday : <span style={{float:"right"}}> 12.5 </span>  </p></td>
+      </tr>
+      <tr>
+     
+     <td>  <p> Sick Leave : <span style={{float:"right"}}> 1 out of 10 </span>  </p></td>
+     </tr>
+              </tbody>
+            </table>
+                    
+               
                     </div>
 
                 <div className="col-md-3">
-                <h5 style={{textAlign:"center"}}>Available Types </h5>
-                <p> Holiday </p>
-                <p> Maternity </p>
-                <p> Paternity Leave </p>
-                <p> Sick Leave (up to 10 days) </p>
+
+                <table className="table" >
+              <tr>
+              <th scope="col">  <h5 style={{textAlign:"center"}}>Available Types </h5> </th>
+              </tr>
+              <tbody>
+              <tr>
+     
+      <td>   <p> Holiday </p></td>
+      </tr>
+      <tr>
+     
+     <td>  <p> Maternity </p></td>
+     </tr>
+     <tr>
+     
+     <td>  <p> Paternity Leave </p></td>
+     </tr>
+     <tr>
+     
+    <td> <p> Sick Leave (up to 10 days) </p> </td>
+     </tr>
+              </tbody>
+            </table>
+              
              </div>
 
              <div className="col-md-3">
-             <h5 style={{textAlign:"center"}}> Details </h5>
-             <p> Supervisor:  <span style={{float:"right", color:"blue"}}>  Arya Stark </span></p>
-             <p> Department: <span style={{float:"right", color:"blue"}}>  Sales </span></p>
-             <p> Allowance in 2019: <span style={{float:"right"}}> 21 days </span></p>
+
+             <table className="table" >
+              <tr>
+              <th scope="col">  <h5 style={{textAlign:"center"}}> Details </h5> </th>
+              </tr>
+              <tbody>
+              <tr>
+     
+      <td>   <p> Supervisor:  <span style={{float:"right", color:"blue"}}>  Arya Stark </span></p></td>
+      </tr>
+      <tr>
+     
+     <td> <p> Department: <span style={{float:"right", color:"blue"}}>  Sales </span></p></td>
+     </tr>
+     <tr>
+     
+     <td>  <p> Allowance in 2019: <span style={{float:"right"}}> 21 days </span></p></td>
+     </tr>
+     
+              </tbody>
+            </table>
+            
              </div>
                 </div>
 

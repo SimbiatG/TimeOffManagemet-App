@@ -10,6 +10,7 @@ class Absenceform extends Component {
 
     constructor(props) {
         super(props);
+        
         this.handleDayChange = this.handleDayChange.bind(this);
         this.state = {
           selectedDay: undefined,
@@ -17,7 +18,9 @@ class Absenceform extends Component {
       }
       handleDayChange(day) {
         this.setState({ selectedDay: day });
+        
       }
+      
 
     render(){
         const { selectedDay } = this.state;
@@ -30,10 +33,11 @@ class Absenceform extends Component {
                             <span className="navbar-brand mb-0 h1">TimeOffManagement</span>
                                 <form className="form-inline">
                                 <Link className="btn btn-outline-success my-2 my-sm-0"  to='/'> HOME </Link>
+                                <Link className="btn btn-outline-success my-2 my-sm-0" to='/dashboard' type="submit"> DASHBOARD </Link>
                                 </form>
                         </nav>
                      </div>
-
+                    
 
                      <div className="container">
 
@@ -52,7 +56,7 @@ class Absenceform extends Component {
     <option value="3"> Holiday Leave</option>
     </select>
 </div>
-
+<form>
                 <div className="row">
 
                 <div className="col-md-4">
@@ -82,7 +86,7 @@ class Absenceform extends Component {
 
 
 
-                        <form>
+                        
                         <div class="form-group">
     <label for="exampleFormControlTextarea1">  </label>
     <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Reasons for Leave" rows="6"></textarea>
@@ -94,8 +98,8 @@ class Absenceform extends Component {
                      </div>
 
 
-
 </div>
+
 
 
 <div className="container-fluid"  style={{padding:"0px"}}>
