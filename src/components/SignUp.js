@@ -14,14 +14,14 @@ class SignUp extends Component{
                     fname: '',
                     lname:'',
                     mname:'',
-                    dept:'',
+                    
                     dob:'',
                     mail:'',
                      pass: '',
                      lnameError:'',
                      fnameError:'',
                      mnameError:'',
-                     deptError:''
+                  
                      
                 }
             };
@@ -44,7 +44,7 @@ handleChange(event){
         
     }
     else{
-        let error = "please use letters only";
+        let error = "please use alphabets only";
         event.target.nextSibling.innerHTML = error ;
         
     }
@@ -106,8 +106,13 @@ render() {
         </div>
         <div className="form-group">
     <label htmlFor="workdepartment"> Work Department</label>
-    <input type="text" className="form-control" name="dept" value= {this.state.dept} onChange= {this.handleChange.bind(this)}  required/>
-    <div style={{color:"red"}}> {this.state.deptError} </div>
+    <select className="custom-select" required id="inputGroupSelect01">
+  <option selected></option>
+    <option value="1"> Sales </option>
+    <option value="2"> Human Resource</option>
+    <option value="3">Operations</option>
+    <option value="3"> IT</option>
+    </select>
 </div>
         
         <div className="form-group ">

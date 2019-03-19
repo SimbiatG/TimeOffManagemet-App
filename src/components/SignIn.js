@@ -13,9 +13,8 @@ class SignIn extends Component{
                     email: '',
                     fullname:'',
                      pass: '',
-                     emailError: '',
-                     fullnameError:'',
-                     passError:''
+                     fullnameError:''
+                   
                 }
             };
                  
@@ -36,7 +35,7 @@ handleChange(event){
     const isValid = this.validate(event.target.value);
     if (isValid){
         console.log(this.state);
-        this.setState(this.initialState)
+       
     }
 
    
@@ -44,21 +43,16 @@ handleChange(event){
 
             validate = (data) => {
                 let fullnameError = "";
-                let emailError = "";
-            
-                var fnameExp = /^[a-zA-Z]+$/;
+    
+             var fnameExp = /^[a-zA-Z]+$/;
 
                 
                 if(!data.match(fnameExp)){
-                    fullnameError = "Please use letters only" 
+                    fullnameError = "Please use alphabets only" 
                 }
 
-                if(!this.state.email){
-                    emailError = "invalid email"
-                }
-
-                if (emailError || fullnameError){
-                    this.setState({ emailError, fullnameError});
+                if (fullnameError){
+                    this.setState({fullnameError});
                     return false;
                 }
                 return true;
@@ -71,7 +65,6 @@ handleChange(event){
 
 handleSubmit(event) {
     event.preventDefault();
-   
    
 };
 
@@ -114,7 +107,7 @@ render() {
         
 
         {/* <button type="button" > SIGN IN </button> */}
-        <button type="submit" className="btn btn-secondary btn-large signinbutton">SIGN IN </button>
+        <button type="submit" className="btn btn-secondary btn-large signinbutton" to='/dashboard'>SIGN IN </button>
                 </form>
             </div>
     </div>

@@ -1,29 +1,90 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
+// import DayPickerInput from 'react-day-picker/DayPickerInput';
+// import 'react-day-picker/lib/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Absenceform.css';
 
 
 class Absenceform extends Component {
 
-    constructor(props) {
-        super(props);
-        
-        this.handleDayChange = this.handleDayChange.bind(this);
-        this.state = {
-          selectedDay: undefined,
-        };
-      }
-      handleDayChange(day) {
-        this.setState({ selectedDay: day });
-        
-      }
+  //     constructor(props){
+  //       super(props);
+  //       this.state = {
+  //         duration: 4
+  //       };
+  //     }
+
+  // calculateDuration = (days) => {
+  //   let not = undefined;
+  //     let value = days
+  //     let result = days
+  //     let day , month, weeks
+  //     if(value >= 30) {
+  //       month = value / 30;
+  //       month = Math.floor(month)
+  //       value = value % 30
+  //     }if (value >= 7) {
+  //         day = value % 7;
+  //         weeks = value / 7;
+  //         weeks = Math.floor(weeks);
+  //     } else {
+  //       day = value
+  //     }
+  //     if(month !== not && (weeks === not && day === not) ) {
+  //        result = `${month} Month`
+  //     }
+  //     if((month === not && day === 0) && weeks !== not ) {
+  //        result = `${weeks} Week`
+  //     }
+  //     console.log(day)
+  //     if(day !== not && (month === not && weeks ===not )) {
+  //       result = `${day} day`
+  //     }
+  //     if(month !== not && weeks !== not && day !== not) {
+  //       result = `${month} Month ${weeks} Week ${day} Day`
+  //     }
+  //       console.log(weeks)
+  //     if(month !== not && weeks !== not && day === 0) {
+  //       result = `${month} Month ${weeks} Week`
+  //     }
+  //     if(month !== not && weeks === not && day !== not ) {
+  //       result = `${month} Month ${day} Day`
+  //     }
+  //     if (month === not && weeks && day) {
+  //       result = `${weeks} Week ${day} Day`
+  //     }
+  //     console.log(result)
       
+  //     return result
+  // }
+
+  // call  = (event) => {
+  //   const { value, id } = event.target;
+  //   // console.log(value)
+  //   const dateNumber = new Date(value).getTime();
+  //   this.setState({
+  //     [id]: dateNumber
+  //   })
+  //   this.calc()
+  // }
+
+  // calc = () => {
+  //   console.log(this.state)
+  //   const {from, to} = this.state;
+  //   // console.log(from)
+  //   const oneDay = 24*60*60*1000;
+  //   const num = to-from;
+  //   var diffDays = Math.round(Math.abs(num) / oneDay );
+  //   this.setState({
+  //     duration: diffDays
+  //   })
+  
+  
+  // }
 
     render(){
-        const { selectedDay } = this.state;
+  
         return(
             
     <React.Fragment>
@@ -48,7 +109,7 @@ class Absenceform extends Component {
   <div className="input-group-prepend">
     <label className="input-group-text" for="inputGroupSelect01"> Type Of Leave</label>
   </div>
-  <select className="custom-select" id="inputGroupSelect01">
+  <select className="custom-select" required id="inputGroupSelect01">
   <option selected></option>
     <option value="1"> Sick Leave </option>
     <option value="2">Maternity Leave </option>
@@ -60,25 +121,25 @@ class Absenceform extends Component {
                 <div className="row">
 
                 <div className="col-md-4">
-                <div>
-        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
-        {!selectedDay && <p> From </p>}
-        <DayPickerInput onDayChange={this.handleDayChange} />
-      </div>
+                <div className="form-group">
+    <label for="from"> FROM </label>
+    <input type="date" required class="form-control" id="from" onChange={this.call}/>
+    
+  </div>
                 </div>
 
                 <div className="col-md-4">
-                <div>
-        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
-        {!selectedDay && <p> To </p>}
-        <DayPickerInput onDayChange={this.handleDayChange} />
-      </div>
+                <div className="form-group">
+    <label for="to">TO </label>
+    <input type="date" required class="form-control" id="to" onChange={this.call} />
+    
+  </div>
 </div>
 
 <div className="col-md-4">
 <div className="form-group">
-    <label for="formGroupExampleInput"> </label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder=" Duration"/>
+    <label for="formGroupExampleInput"> DURATION</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" value ={this.state.duration}/>
   </div>
 </div>
 
@@ -89,7 +150,7 @@ class Absenceform extends Component {
                         
                         <div class="form-group">
     <label for="exampleFormControlTextarea1">  </label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Reasons for Leave" rows="6"></textarea>
+    <textarea class="form-control" required id="exampleFormControlTextarea1" placeholder="Reasons for Leave" rows="6"></textarea>
   </div>
 
   <button type="submit" className="btn btn-secondary btn-large "> Submit </button>

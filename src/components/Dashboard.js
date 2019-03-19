@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import Dates from './components/Dates';
+import DayPicker from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
 import './Dashboard.css';
 
   
 class Dashboard extends Component{
+
+  constructor(props){
+    super(props);
+      this.state = {isToggleOn:true};
+
+
+      this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(){
+    this.setState(function(prevState){
+      return {isToggleOn: ! prevState.isToggleOn};
+    });
+  }
+
+  Example = () => {
+    return <DayPicker numberOfMonths={4} />;
+
+  }
+
     render() {
         return(
                 
@@ -16,7 +38,6 @@ class Dashboard extends Component{
                     <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <Link to='/'> HOME </Link></li>
                     <li class="breadcrumb-item"> <Link to='/absenceform'> ABSENCE-FORM </Link></li>
-                <li class="breadcrumb-item active"  aria-current="page"><a href="#"> Calendar </a></li>
                 <li class="breadcrumb-item"> <Link to='/teamview'>TEAM-VIEW  </Link></li>
                 </ol>
             </nav>
@@ -127,211 +148,13 @@ class Dashboard extends Component{
 
                 <div className="container">
                 <h3 style={{color:"blue", marginTop:"40px"}}>  Calendar  </h3> 
-                <h5 style={{textAlign:"center" , marginTop:"30px"}}> Upcoming Months </h5>
+                <h5 style={{textAlign:"center" , marginTop:"30px"}}> Upcoming Months  </h5>
+
                     <div className="row" style={{marginTop:"30px"}}>
-                        <div className="col-md-3">
-                        <div className="month">      
-                             <ul>
-    <li> July 2019 </li>
-                            </ul>
-                        </div>
-                                
-<ul className="weekdays">
-<li>M</li>
-  <li>T</li>
-  <li>W</li>
-  <li>Th</li>
-  <li>F</li>
-  <li>S</li>
-  <li>S</li>
-</ul>
+                        <DayPicker numberOfMonths={4}/>
+                      
 
-<ul className="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li><span className="active">10</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-                        </div>
-                        <div className="col-md-3">
-                        <div className="month">      
-                             <ul>
-    <li> August 2019 </li>
-                            </ul>
-                        </div>
-                                
-<ul className="weekdays">
-<li>M</li>
-  <li>T</li>
-  <li>W</li>
-  <li>Th</li>
-  <li>F</li>
-  <li>S</li>
-  <li>S</li>
-</ul>
-
-<ul className="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li><span className="active">17</span></li>
-  <li><span className="active">18</span></li>
-  <li><span className="active">19</span></li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-                        </div>
-
-                            <div className="col-md-3">
-                            <div className="month">      
-                             <ul>
-    <li> September 2019 </li>
-                            </ul>
-                        </div>
-                                
-<ul className="weekdays">
-<li>M</li>
-  <li>T</li>
-  <li>W</li>
-  <li>Th</li>
-  <li>F</li>
-  <li>S</li>
-  <li>S</li>
-</ul>
-
-<ul className="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li><span className="active">17</span></li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-                            </div>
-
-                            <div className="col-md-3">
-                            <div className="month">      
-                             <ul>
-    <li> October 2019 </li>
-                            </ul>
-                        </div>
-                                
-<ul className="weekdays">
-<li>M</li>
-  <li>T</li>
-  <li>W</li>
-  <li>Th</li>
-  <li>F</li>
-  <li>S</li>
-  <li>S</li>
-</ul>
-
-<ul className="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li><span className="active">9</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li><span className="active">25</span></li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-                            </div>
+                        
                     </div>
 </div>
                 
@@ -346,6 +169,7 @@ class Dashboard extends Component{
       <th scope="col">Deducted</th>
       <th scope="col">Dates</th>
       <th scope="col">Approved by</th>
+      <th scope="col"></th>
       <th scope="col"> Status </th>
     </tr>
   </thead>
@@ -355,6 +179,7 @@ class Dashboard extends Component{
       <td>7</td>
       <td> From 01-06-2019 to 12-06-2019 </td>
       <td> Cersei Lannister </td>
+      <td><i className="fas fa-trash-alt"></i></td>
       <td> Approved</td>
     </tr>
     <tr>
@@ -362,13 +187,15 @@ class Dashboard extends Component{
       <td>0</td>
       <td>From 01-08-2019 to 12-08-2019</td>
       <td> Sansa Stark</td>
-      <td>Approved</td>
+      <td><i className="fas fa-trash-alt"></i></td>
+     <td>Approved</td>
     </tr>
     <tr>
     <td> Holiday </td>
       <td>7</td>
       <td> From 06-06-2019 to 12-06-2019 </td>
       <td> Cersei Lannister </td>
+      <td><i className="fas fa-trash-alt"></i></td>
       <td> Approved</td>
     </tr>
     <tr>
@@ -376,6 +203,7 @@ class Dashboard extends Component{
       <td>7</td>
       <td> From 01-06-2019 to 12-06-2019 </td>
       <td> Cersei Lannister </td>
+      <td><i className="fas fa-trash-alt"></i></td>
       <td> Approved</td>
     </tr>
     <tr>
@@ -383,6 +211,7 @@ class Dashboard extends Component{
       <td>0.5</td>
       <td> From 01-09-2019 to 12-09-2019 </td>
       <td> Little Finger </td>
+      <td><i className="fas fa-trash-alt"></i></td>
       <td> Approved</td>
     </tr>
     <tr>
@@ -390,6 +219,7 @@ class Dashboard extends Component{
       <td>3 </td>
       <td> From 01-10-2019 to 12-10-2019 </td>
       <td> Jon Snow </td>
+      <td><i className="fas fa-trash-alt"></i></td>
       <td> Approved</td>
     </tr>
   </tbody>
