@@ -82,6 +82,8 @@ class Absenceform extends Component {
   
   
   // }
+  // onChange={this.call}
+  // value ={this.state.duration}
 
     render(){
   
@@ -123,7 +125,7 @@ class Absenceform extends Component {
                 <div className="col-md-4">
                 <div className="form-group">
     <label for="from"> FROM </label>
-    <input type="date" required class="form-control" id="from" onChange={this.call}/>
+    <input type="date" required class="form-control" id="from"/>  
     
   </div>
                 </div>
@@ -131,7 +133,7 @@ class Absenceform extends Component {
                 <div className="col-md-4">
                 <div className="form-group">
     <label for="to">TO </label>
-    <input type="date" required class="form-control" id="to" onChange={this.call} />
+    <input type="date" required class="form-control" id="to" />
     
   </div>
 </div>
@@ -139,7 +141,7 @@ class Absenceform extends Component {
 <div className="col-md-4">
 <div className="form-group">
     <label for="formGroupExampleInput"> DURATION</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" value ={this.state.duration}/>
+    <input type="text" class="form-control" id="formGroupExampleInput" />
   </div>
 </div>
 
