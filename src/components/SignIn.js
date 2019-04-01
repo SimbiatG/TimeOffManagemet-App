@@ -11,9 +11,11 @@ class SignIn extends Component{
             this.state = {
                 initialState : {
                     email: '',
-                    fullname:'',
+                    firstname:'',
+                    lastname:'',
                      pass: '',
-                     fullnameError:''
+                     fullnameError:'',
+                     lastnameError:''
                    
                 }
             };
@@ -26,41 +28,50 @@ class SignIn extends Component{
 }
 
 handleChange(event){
-    const isCheckbox = event.target.type === "checkbox;"
+    // const isCheckbox = event.target.type === "checkbox;"
     this.setState({
-        [event.target.name]: isCheckbox
-            ? event.target.checked
-            : event.target.value
+        [event.target.name]: event.target.value
     });
     const isValid = this.validate(event.target.value);
     if (isValid){
-        console.log(this.state);
-       
+        let error = ""
+        // event.target.nextSibling.innerHTML = error ;
+        
+    }
+    else{
+        let error = "please use alphabets only";
+        // event.target.nextSibling.innerHTML = error ;
+        
     }
 
-   
 }
 
-            validate = (data) => {
-                let fullnameError = "";
+validate = (data) => {
+
+    var nameExp = /^[a-zA-Z]+$/;
+    if(!data.match(nameExp)){
+        return false;
+    }
+    return true;
+};
+
+            // validate = (fullnameError) => {
+                
     
-             var fnameExp = /^[a-zA-Z]+$/;
+            //  var fnameExp = /^[a-zA-Z]+$/;
 
                 
-                if(!data.match(fnameExp)){
-                    fullnameError = "Please use alphabets only" 
-                }
+            //     if(!fullnameError.match(fnameExp)){
+            //         fullnameError = "Please use alphabets only" 
+            //     }
 
-                if (fullnameError){
-                    this.setState({fullnameError});
-                    return false;
-                }
-                return true;
-            };
+            //     if (fullnameError){
+            //         this.setState({fullnameError});
+            //         return false;
+            //     }
+            //     return true;
+            // };
            
-
-
-
 
 
 handleSubmit(event) {
@@ -89,9 +100,15 @@ render() {
                 <form onSubmit={this.handleSubmit}>
 
                 <div className="form-group ">
-             <label htmlFor="name"> Full-Name:</label>
-             <input type="text" className="form-control" required name="fullname"  value={this.state.fullname} onChange={this.handleChange.bind(this)} placeholder="Full-Name"/>
+             <label htmlFor="firstname"> First-Name:</label>
+             <input type="text" className="form-control" required name="firstname"  value={this.state.firstname} onChange={this.handleChange.bind(this)} placeholder="Full-Name"/>
                     <div style={{color:"red"}}> {this.state.fullnameError} </div>
+        </div>
+        
+        <div className="form-group ">
+             <label htmlFor="lastname"> Last-Name:</label>
+             <input type="text" className="form-control" required name="lastname"  value={this.state.lastname} onChange={this.handleChange.bind(this)} placeholder="Last-Name"/>
+                    <div style={{color:"red"}}> {this.state.lastnameError} </div>
         </div>
                     <div className="form-group ">
              <label htmlFor="email">Email:</label>

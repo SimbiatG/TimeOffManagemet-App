@@ -107,7 +107,7 @@ render() {
         <div className="form-group">
     <label htmlFor="workdepartment"> Work Department</label>
     <select className="custom-select" required id="inputGroupSelect01">
-  <option selected></option>
+  <option selected> </option>
     <option value="1"> Sales </option>
     <option value="2"> Human Resource</option>
     <option value="3">Operations</option>
