@@ -33,14 +33,15 @@ handleChange(event){
         [event.target.name]: event.target.value
     });
     const isValid = this.validate(event.target.value);
+    console.log(event.target.value)
     if (isValid){
         let error = ""
-        // event.target.nextSibling.innerHTML = error ;
+        event.target.nextSibling.innerHTML = error;
         
     }
     else{
         let error = "please use alphabets only";
-        // event.target.nextSibling.innerHTML = error ;
+        event.target.nextSibling.innerHTML = error;
         
     }
 
@@ -112,7 +113,7 @@ render() {
         </div>
                     <div className="form-group ">
              <label htmlFor="email">Email:</label>
-             <input type="email" className="form-control" required name="email"  value={this.state.email} onChange={this.handleChange.bind(this)} placeholder="Email Address"/>
+             <input type="email" className="form-control" required name="email"  value={this.state.email}  placeholder="Email Address"/>
             
         </div>
         
